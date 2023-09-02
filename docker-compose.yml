@@ -33,6 +33,7 @@ services: # Palabra clave de Docker Compose.
     expose:
       - '3306'
     volumes:
+      - ./database/schema.sql:/schema.sql
       - db:/var/lib/mysql
     networks:
       - internal

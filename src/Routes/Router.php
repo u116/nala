@@ -13,13 +13,11 @@ class Router
 
     private static array $routes = [
         '/' => 'home',
-        '/home' => 'home',
         '/about' => 'about',
         '/contact' => 'contact',
         '/interests' => 'interests',
         '/blog' => 'blog',
-        '/index' => 'index',
-        '/response' => 'response'
+        '/index' => 'index'
     ];
     
 
@@ -44,17 +42,15 @@ class Router
             'DELETE',
             'PATCH',
             'PUT'
-        ])) $this->abort(new ResponseController);
+        ])) return $this->abort(new ResponseController, 400);
 
-        if (!isset($this->route)) $this->abort(new ResponseController);
+        if (is_null($this->route)) return $this->abort(new ResponseController);
 
         return $this->controller($this->route)->$method();
     }
 
-    protected function abort($object, $httpCode = 404): void
+    protected function abort(ResponseController $object, $httpCode = 404): array
     {
-        http_response_code($httpCode);
-        $object->httpCodeResponse($httpCode);
-        die();
+        return $object->httpCodeResponse($httpCode);
     }
 }

@@ -4,8 +4,9 @@ namespace Src\Controllers;
 
 class ResponseController extends AbstractController
 {
-    public function httpCodeResponse($httpCode): void
+    public function httpCodeResponse($httpCode): array
     {
-        $this->render($httpCode);
+        http_response_code($httpCode);
+        return $this->render($httpCode);
     }
 }
