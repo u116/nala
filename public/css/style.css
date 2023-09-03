@@ -61,7 +61,7 @@ nav ul {
 }
 
 nav ul li {
-    opacity: .7;
+    opacity: .6;
     transition: var(--transition);
 }
 
@@ -79,7 +79,7 @@ div.contact-grid a {
     width: 100%;
     padding: 10px;
     background-color: var(--body-bg);
-    border-radius: var(--border-radius);
+    border-radius: 2px;
     border: 2px solid var(--box-bg-border);
     transition: var(--transition);
 }
@@ -96,4 +96,28 @@ div.interests-grid {
 div.interest-title {
     text-align: center;
     font-weight: bold;
+}
+
+div.index-grid {
+    display: grid;
+    grid-gap: 10px;
+}
+
+div.index-grid a {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--body-bg);
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+    transition: var(--transition);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+    fill: var(--main-font-color);
+}
+
+div.index-grid a:hover {
+    background-color: var(--box-bg);
 }

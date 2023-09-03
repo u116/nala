@@ -1,6 +1,3 @@
-<?php
-
-?>
 <div class="contact-grid">
     <p>You can contact me through:</p>
     <?php foreach((array) $web['page']['var']['contacts'] as $key => $value): ?>
@@ -14,7 +11,8 @@
                 ?><a href="https://x.com/<?=$value?>"><?=ucfirst($key)?></a> <?php
                 break;
             case "github":
-                ?><a href="https://github.com/<?=$value?>"><?=ucfirst($key)?></a> <?php
+                ?><a href="https://github.com/<?=$value?>">
+                <?=ucfirst($key)?></a> <?php
                 break;
             case "discord":
                 ?><?=ucfirst($key)?> (<?=$value?>) <?php

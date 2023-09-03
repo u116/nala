@@ -57,6 +57,8 @@ CREATE TABLE `sakuin` (
     `title` VARCHAR(40) NOT NULL,
     `description` TEXT,
     `link` VARCHAR(2083) NOT NULL,
+    `uid` INT UNSIGNED NOT NULL,
+    FOREIGN KEY (`uid`) REFERENCES `users`(`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (`sid`)
 ) AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 

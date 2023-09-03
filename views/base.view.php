@@ -14,7 +14,7 @@
 <meta property="og:title" content="Nala">
 <meta property="og:description" content="nala.dev is a personal website used for tools like file-sharing, link-shortening and other functionalities.">
 
-<link type="image/png" sizes="32x32" rel="icon" href="/storage/anmi 1.png">
+<link type="image/png" sizes="32x32" rel="icon" href="/storage/favico2.png">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/var.css">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
