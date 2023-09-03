@@ -80,7 +80,7 @@ class Database
             ->fetch_column();
     }
 
-    public function fetchAssoc(): array
+    public function fetchAssoc(): array|null
     {
         return self::$c
             ->execute_query($this->query.';')

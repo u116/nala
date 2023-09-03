@@ -68,3 +68,22 @@ nav ul li {
 nav ul li:hover, nav ul li.highlight {
     opacity: 1;
 }
+
+div.contact-grid {
+    display: grid;
+    grid-gap: 10px;
+    text-align: center;
+}
+
+div.contact-grid a {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--body-bg);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--box-bg-border);
+    transition: var(--transition);
+}
+
+div.contact-grid a:hover {
+    background-color: var(--box-bg);
+}
