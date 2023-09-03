@@ -1,9 +1,11 @@
 <?php
 
-if (!empty($web['page']['var']['contacts'])) {
-    ?> <div class="contact-grid"> <?php
-    echo "<p>You can contact me through: </p>";
-    foreach($web['page']['var']['contacts'] as $key => $value) {
+?>
+<div class="contact-grid">
+    <p>You can contact me through:</p>
+    <?php foreach((array) $web['page']['var']['contacts'] as $key => $value): ?>
+        <?php
+
         switch ($key) {
             case "email":
                 ?><a href="mailto:<?=$value?>"><?=ucfirst($key)?></a> <?php
@@ -21,6 +23,7 @@ if (!empty($web['page']['var']['contacts'])) {
                 ?><a href="<?=$value?>"><?=ucfirst($key)?></a> <?php
                 break;
         }
-    }
-    ?> </div> <?php
-}
+
+        ?>
+    <?php endforeach; ?>
+</div>
