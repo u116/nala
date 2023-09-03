@@ -87,6 +87,13 @@ class Database
             ->fetch_assoc();
     }
 
+    public function fetchAll(): array|null
+    {
+        return self::$c
+            ->execute_query($this->query.';')
+            ->fetch_all(MYSQLI_ASSOC);
+    }
+
     public static function insertedId(): int
     {
         return self::$c->insert_id;

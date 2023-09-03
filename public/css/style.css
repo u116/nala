@@ -29,7 +29,7 @@ main{
 
 main img#cat {
     max-height: 400px;
-    margin-top: 4em;
+    margin-top: 2em;
     cursor: pointer;
 }
 
@@ -86,4 +86,14 @@ div.contact-grid a {
 
 div.contact-grid a:hover {
     background-color: var(--box-bg);
+}
+
+div.interests-grid {
+    display: grid;
+    grid-gap: 15px;
+}
+
+div.interest-title {
+    text-align: center;
+    font-weight: bold;
 }

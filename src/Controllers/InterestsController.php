@@ -4,17 +4,11 @@ namespace Src\Controllers;
 
 class InterestsController extends AbstractController
 {
-    public string $content;
-
-    private function getContent(): string
-    {
-        return $this->content = 'hey there, i\'m 21, currently living in Spain. nabuna.me is a personal website that I use for tools like file-sharing, link-shortening and other functionalities.';
-    }
-
     public function get(): array
     {
+        $interests = $this->Interests->getInterests();
         return $this->render('interests', [
-                'content' => $this->getContent(),
+                'interests' => empty($interests) ? null : $interests,
             ]
         );
     }
