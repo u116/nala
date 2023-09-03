@@ -3,19 +3,8 @@
     --main-font-color: #f1f1f1;
     --box-bg: #333333;
     --box-bg-border: rgb(70, 70, 70);
+    --purple-archived: #b6bae5;
     --bold: 600;
-    --font_low-opacity: 0.6;
-    --box-font-size: 14px;
-    --box-title: #2D2C3B;
-    --box-title-light: #373647;
-    --box-bg-hover: #2D2C3B;
-    --box-bg-light: #484857;
-    --border-radius: 8px;
-    --blue: #3A73F3;
-    --purple: #633dc4;
-    --red: #f33a3a;
-    --orange: rgb(249, 76, 87);
-
     --gap: 8px;
     --transition: .15s;
 }

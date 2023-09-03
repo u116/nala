@@ -106,18 +106,23 @@ div.index-grid {
 div.index-grid a {
     width: 100%;
     padding: 10px;
+    text-align: center;
     background-color: var(--body-bg);
     border-radius: 2px;
     border: 2px solid var(--box-bg-border);
     transition: var(--transition);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gap);
-    fill: var(--main-font-color);
 }
 
 div.index-grid a:hover {
     background-color: var(--box-bg);
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 15px;
+    }
+    main {
+        width: 100%!important;
+        height: 100%!important;
+    }
 }
