@@ -8,7 +8,7 @@ class Router
 {
     public string $uri;
     public array $uriGuide;
-    private string|null $route;
+    private ?string $route;
     private static string $controllersPath = '\Src\Controllers\\';
 
     private static array $routes = [

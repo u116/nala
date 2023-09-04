@@ -4,7 +4,7 @@ namespace Src\Models;
 
 class Index extends Model
 {
-    public function getIndex(): array|null
+    public function getIndex(): ?array
     {
         return $this->DB
             ->select('title,description,link')

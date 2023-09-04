@@ -18,8 +18,8 @@ body{
 
 main{
     width: 560px;
-    height: 100vh;
-    margin: 0 auto;
+    min-height: 100vh;
+    margin: 0 auto 15px;
 
     display: flex;
     flex-direction: column;
@@ -49,6 +49,11 @@ main img#cat.home {
     font-size: 14px;
     text-align: justify;
 }
+
+.title {
+     text-align: center;
+     font-weight: bold;
+ }
 
 main article, nav {
     width: 100%;
@@ -93,17 +98,19 @@ div.interests-grid {
     grid-gap: 15px;
 }
 
-div.interest-title {
-    text-align: center;
-    font-weight: bold;
-}
+
 
 div.index-grid {
+    display: grid;
+    grid-gap: 15px;
+}
+
+div.index-grid_entry {
     display: grid;
     grid-gap: 10px;
 }
 
-div.index-grid a {
+div.index-grid_entry a {
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -117,9 +124,42 @@ div.index-grid a:hover {
     background-color: var(--box-bg);
 }
 
+div.blog-grid {
+    display: grid;
+    grid-gap: 15px;
+}
+
+div.blog-grid .title {
+    margin-top: .7em; /* Eye thing */
+}
+
+div.blog-grid img {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+}
+
+div.top {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    padding: 3px 9px 6px;
+    background-color: #333333;
+    border-radius: 2px;
+    border: 2px solid #464646;
+    z-index: 2;
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+div.top:hover {
+    filter: brightness(1.1);
+}
+
 @media (max-width: 560px) {
     body {
-        padding: 15px;
+        padding: 0 15px;
     }
     main {
         width: 100%!important;

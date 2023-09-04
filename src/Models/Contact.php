@@ -14,7 +14,7 @@ class Contact extends Model
     private string $select = '';
     private array $prepared = [];
 
-    public function getContact(): array|null
+    public function getContact(): ?array
     {
         foreach((array) $this->getContactData() as $contact => $value) {
             if (isset($value)) $this->prepared[$contact] = $value;
@@ -32,7 +32,7 @@ class Contact extends Model
         return rtrim($this->select, ',');
     }
 
-    private function getContactData(): array|null
+    private function getContactData(): ?array
     {
         return $this->DB
             ->select($this->prepareSelect())

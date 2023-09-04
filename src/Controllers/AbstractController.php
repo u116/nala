@@ -6,6 +6,7 @@ use Src\Models\About;
 use Src\Models\Contact;
 use Src\Models\Interests;
 use Src\Models\Index;
+use Src\Models\Blog;
 
 abstract class AbstractController
 {
@@ -13,6 +14,7 @@ abstract class AbstractController
     protected Contact $Contact;
     protected Interests $Interests;
     protected Index $Index;
+    protected Blog $Blog;
     private static array $views = [
         'about' => 'about/about',
         'contact' => 'contact/contact',
@@ -29,6 +31,7 @@ abstract class AbstractController
         $this->Contact = new Contact;
         $this->Interests = new Interests;
         $this->Index = new Index;
+        $this->Blog = new Blog;
     }
 
     public function render($route, $variables = []): array

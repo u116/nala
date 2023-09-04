@@ -1,4 +1,2 @@
 .idea
-/public/storage/*
-/personal-archived/*
-/database/credentials.php
+/public/storage/favico.png

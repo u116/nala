@@ -67,9 +67,9 @@ class Database
         return $this;
     }
 
-    public function orderBy(?string $column, string $way = 'ASC'): Database
+    public function orderBy(string $column, string $way = 'ASC'): Database
     {
-        $this->query .= "ORDER BY ".$column ?? $way;
+        $this->query .= " ORDER BY ".$column." ".$way;
         return $this;
     }
 
@@ -80,14 +80,14 @@ class Database
             ->fetch_column();
     }
 
-    public function fetchAssoc(): array|null
+    public function fetchAssoc(): ?array
     {
         return self::$c
             ->execute_query($this->query.';')
             ->fetch_assoc();
     }
 
-    public function fetchAll(): array|null
+    public function fetchAll(): ?array
     {
         return self::$c
             ->execute_query($this->query.';')
