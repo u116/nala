@@ -31,29 +31,15 @@
             <img id="cat" alt="cat" class="<?php if($web['page']['route'] === 'home') echo 'home'; ?>" src="/storage/img/itazuranekoanimated.png">
         </a>
 
+        <?php if ($web['menu_at_top']) require view('_menu.view.php'); ?>
+
         <?php if (isset($web['page']['view'])): ?>
 
         <article class="box">
             <?php require $web['page']['view'] ?>
         </article>
 
-        <nav class="box">
-            <ul>
-                <?php
-
-                $links = ['about', 'contact', 'interests', 'blog', 'index'];
-
-                foreach ($links as $link) {
-                    if ($web['page']['route'] === $link) {
-                        echo "<li class='highlight'><a href='$link'>$link</a></li>";
-                    } else {
-                        echo "<li><a href='$link'>$link</a></li>";
-                    }
-                }
-
-                ?>
-            </ul>
-        </nav>
+        <?php if (!$web['menu_at_top']) require view('_menu.view.php'); ?>
 
         <?php endif; ?>
 

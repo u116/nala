@@ -16,6 +16,11 @@ body{
     color: var(--main-font-color);
 }
 
+input {
+    outline: none;
+    font-family: monospace;
+}
+
 main{
     width: 560px;
     min-height: 100vh;
@@ -155,6 +160,36 @@ div.top {
 
 div.top:hover {
     filter: brightness(1.1);
+}
+
+form.login {
+    margin-top: 4px; /* Eye thing */
+    display: grid;
+    grid-gap: 15px;
+    justify-items: center;
+}
+
+form.login input[type=text], form.login input[type=password] {
+    width: 80%;
+    padding: 10px;
+    text-align: left;
+    background-color: var(--body-bg);
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+    transition: var(--transition);
+}
+
+form.login input[type=submit] {
+    padding: 10px 60px;
+    background-color: var(--body-bg);
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+form.login input[type=submit]:hover {
+    background-color: var(--box-bg);
 }
 
 @media (max-width: 560px) {

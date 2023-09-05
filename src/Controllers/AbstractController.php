@@ -21,6 +21,7 @@ abstract class AbstractController
         'interests' => 'interests/interests',
         'blog' => 'blog/blog',
         'index' => 'index/index',
+        'login' => 'login/login',
         '404' => 'response/404',
         '400' => 'response/400'
     ];
@@ -34,7 +35,7 @@ abstract class AbstractController
         $this->Blog = new Blog;
     }
 
-    public function render($route, $variables = []): array
+    public function render($route, $variables = [], $top = false): array
     {
         return [
             'base' => view('base.view.php'),
@@ -42,7 +43,8 @@ abstract class AbstractController
                 'route' => $route,
                 'view' => $route === 'home' ? null : path('views/' . self::$views[$route] . '.view.php'),
                 'var' => $variables
-            ]
+            ],
+            'menu_at_top' => $top
         ];
     }
 }

@@ -17,7 +17,8 @@ class Router
         '/contact' => 'contact',
         '/interests' => 'interests',
         '/blog' => 'blog',
-        '/index' => 'index'
+        '/index' => 'index',
+        '/login' => 'login'
     ];
     
 
