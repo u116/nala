@@ -6,7 +6,7 @@ use Src\Controllers\ResponseController;
 
 class Router
 {
-    public string $uri;
+    public ?string $uri;
     public array $uriGuide;
     private ?string $route;
     private static string $controllersPath = '\Src\Controllers\\';
@@ -24,8 +24,8 @@ class Router
 
     public function __construct()
     {
-        $this->uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-        $this->uriGuide = explode('/', $this->uri);
+        $this->uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $this->uriGuide = explode('/', (string) $this->uri);
         $this->route = self::$routes[$this->uri] ?? null;
     }
 

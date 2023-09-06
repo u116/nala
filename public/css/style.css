@@ -18,13 +18,14 @@ body{
 
 input {
     outline: none;
-    font-family: monospace;
+    font-family: monospace, serif;
 }
 
 main{
     width: 560px;
     min-height: 100vh;
-    margin: 0 auto 15px;
+    margin: 0 auto;
+    padding: 0 0 15px;
 
     display: flex;
     flex-direction: column;
