@@ -1,7 +1,8 @@
-<form class="simple" action="/login" method="post">
-    <p>Log into your account:</p>
+<form class="simple" action="/register" method="post">
+    <p>Register an account:</p>
     <input type="text" name="un" id="un" placeholder="Username">
     <input type="password" name="pw" id="pw" placeholder="Password">
+    <input type="email" name="e" id="e" placeholder="Email (This can be empty)">
     <input type="submit" name="s" id="s" value="Sign In">
 </form>
 

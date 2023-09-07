@@ -1,3 +1,3 @@
-<?php
-
-print $web['page']['var']['content'];
+<article>
+   <p> <?= $web['page']['var']['content'] ?> </p>
+</article>

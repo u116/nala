@@ -1,10 +1,12 @@
-<div class="blog-grid">
+<section class="blog-grid">
     <?php foreach((array)$web['page']['var']['blog'] as $key => $value): ?>
-        <div class="title"><?=$value['title']?> (<?=ucfirst(dateFormat($value['date']))?>)</div>
-        <div class="content"><?=$value['content']?></div>
-        <img src="/storage/img/<?=$value['picture']?>" alt="">
+    <article class="blog-grid">
+        <h4 class="title"><?=$value['title']?> (<time datetime="<?=$value['date']?>"><?=ucfirst(dateFormat($value['date']))?></time>)</h4>
+        <p><?=$value['content']?></p>
+        <figure><img src="/storage/img/<?=$value['picture']?>" alt="<?=explode('.', $value['picture'])[0]?>"></figure>
+    </article>
     <?php endforeach; ?>
-</div>
+</section>
 
 <a href="#top">
     <div class="top">

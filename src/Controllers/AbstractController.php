@@ -22,6 +22,7 @@ abstract class AbstractController
         'blog' => 'blog/blog',
         'index' => 'index/index',
         'login' => 'login/login',
+        'register' => 'register/register',
         '404' => 'response/404',
         '400' => 'response/400'
     ];

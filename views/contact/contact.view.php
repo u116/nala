@@ -1,4 +1,4 @@
-<div class="contact-grid">
+<section class="contact-grid">
     <p>You can contact me through:</p>
     <?php foreach((array) $web['page']['var']['contacts'] as $key => $value): ?>
         <?php
@@ -24,4 +24,4 @@
 
         ?>
     <?php endforeach; ?>
-</div>
+</section>
