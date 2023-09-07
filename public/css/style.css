@@ -136,7 +136,7 @@ div.index-grid_entry a {
     transition: var(--transition);
 }
 
-div.index-grid a:hover {
+div.index-grid_entry a:hover {
     background-color: var(--box-bg);
 }
 
@@ -201,6 +201,19 @@ form.simple input[type=submit] {
 
 form.simple input[type=submit]:hover {
     background-color: var(--box-bg);
+}
+
+form.simple input:focus-within {
+    border: 2px solid var(--purple-archived);
+}
+
+section.error-page a {
+    transition: var(--transition);
+    opacity: .6;
+}
+
+section.error-page a:hover {
+    opacity: 1;
 }
 
 @media (max-width: 560px) {

@@ -23,8 +23,8 @@ abstract class AbstractController
         'index' => 'index/index',
         'login' => 'login/login',
         'register' => 'register/register',
-        '404' => 'response/404',
-        '400' => 'response/400'
+        'error' => 'error/error',
+
     ];
 
     public function __construct()

@@ -2,8 +2,6 @@
 
 namespace Src\Models;
 
-use Src\Models\Database;
-
 abstract class Model
 {
     protected Database $DB;
