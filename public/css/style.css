@@ -220,7 +220,7 @@ section.error-page a:hover {
     body {
         padding: 0 15px;
     }
-    main {
+    div#web-container {
         width: 100%!important;
         height: 100%!important;
     }
