@@ -114,17 +114,23 @@ function highlightNav(array $nav, $substrStart) {
     }
 }
 
-function timeAgo($current, $reference) {
+function timeAgo($current, $reference)
+{
     $difference = strtotime($current) - strtotime($reference);
     if ($difference <= 60) {
         $difference === 1 ? $formatted = $difference . ' second ago' : $formatted = $difference . ' seconds ago';
     } else if ($difference <= 3600) {
         round(($difference / 60)) == 1 ? $formatted = round(($difference / 60)) . ' minute ago' : $formatted = round(($difference / 60)) . ' minutes ago';
-    } else if ($difference <= 86400)  {
+    } else if ($difference <= 86400) {
         round(($difference / 3600)) == 1 ? $formatted = round(($difference / 3600)) . ' hour ago' : $formatted = round(($difference / 3600)) . ' hours ago';
     } else {
         round(($difference / 86400)) == 1 ? $formatted = round(($difference / 86400)) . ' day ago' : $formatted = round(($difference / 86400)) . ' days ago';
     }
 
     return $formatted;
+}
+
+function strlenBetween(string $word, int $min, int $max): bool
+{
+    return (strlen($word) >= $min) && (strlen($word) <= $max);
 }

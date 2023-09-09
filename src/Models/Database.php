@@ -52,6 +52,40 @@ class Database
         return $this;
     }
 
+    public function insert(array $values): Database
+    {
+        $tableColumns = '';
+        $insertingValues = '';
+        foreach ($values as $key => $value) {
+            $tableColumns .= "`{$key}`, ";
+            switch ($value) {
+                case is_string($value):
+                    $insertingValues .= "\"{$value}\", ";
+                    break;
+                case is_int($value):
+                case is_float($value):
+                case 'default':
+                case 'null':
+                    $insertingValues .= "{$value}, ";
+                    break;
+            }
+
+        }
+
+        $tableColumns = rtrim($tableColumns, ', ');
+        $insertingValues = rtrim($insertingValues, ', ');
+
+
+        $this->query = "({$tableColumns}) VALUES ({$insertingValues})";
+        return $this;
+    }
+
+    public function into(string $table): Database
+    {
+        $this->query = "INSERT INTO `{$table}` ".$this->query;
+        return $this;
+    }
+
     public function where(string|array $conditions): Database
     {
         if (is_string($conditions)) {
@@ -92,6 +126,11 @@ class Database
         return self::$c
             ->execute_query($this->query.';')
             ->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function execute(): true|mysqli_sql_exception
+    {
+        return self::$c->execute_query($this->query.';');
     }
 
     public static function insertedId(): int
