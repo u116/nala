@@ -207,6 +207,10 @@ form.simple input:focus-within {
     border: 2px solid var(--purple-archived);
 }
 
+form.simple p.error {
+    color: var(--red);
+}
+
 section.error-page a {
     transition: var(--transition);
     opacity: .6;
