@@ -25,11 +25,14 @@ class LoginController extends AbstractController
 
         if ($this->u(($this->data = $form->getTrimmedValues())['u'])) $this->p($this->data['p']);
 
-        if (is_null($this->errors)) $this->user['token'] = (new UserVerify)->handle($this->user['uid']);
-
-        return $this->render('login', [
-            'user' => $this->errors ?? $this->user,
+        if (isset($this->errors)) return $this->render('login', [
+            'user' => $this->errors,
         ]);
+
+        if (is_null($this->errors))
+            if ((new UserVerify)->handle($this->user['uid']))
+                header('Location: /');
+                return $this->render('home');
     }
 
     private function u(string $username): bool

@@ -4,24 +4,32 @@ namespace Src\Models;
 
 class UserSession extends User
 {
+    public string $token;
 
-    public function makeSession(int $uid): null|string
+    public function makeSession(int $uid): bool
     {
-        if ($token = $this->sessionExists($uid)) return $token;
-
-        if ($this->DB
+        return (bool)$this->DB
             ->insert([
-                'token' => $token = self::generateToken(),
+                'token' => $this->token = self::generateToken(),
                 'uid' => $uid
             ])
             ->into('sessions')
-            ->execute()
-        ) return $token;
-
-        return null;
+            ->execute();
     }
 
-    private function sessionExists(int $uid): string
+    public function getSessionInfo(int $uid): array
+    {
+        return $this->DB
+            ->select([
+                'uid',
+                'username',
+            ])
+            ->from('users')
+            ->where("uid={$uid}")
+            ->fetchAssoc();
+    }
+
+    public function getToken(int $uid): string
     {
         return $this->DB
             ->select('token')

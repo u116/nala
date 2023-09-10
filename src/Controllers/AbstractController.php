@@ -10,6 +10,7 @@ use Src\Models\Blog;
 use Src\Http\Forms\Form;
 use Src\Http\Forms\LoginForm;
 use Src\Models\User;
+use Src\Http\Middleware\UserVerify;
 
 abstract class AbstractController
 {
@@ -20,6 +21,7 @@ abstract class AbstractController
     protected Blog $Blog;
     protected LoginForm $LoginForm;
     protected User $User;
+    protected UserVerify $UserVerify;
     private static array $views = [
         'about' => 'about/about',
         'contact' => 'contact/contact',
@@ -29,7 +31,6 @@ abstract class AbstractController
         'login' => 'login/login',
         'register' => 'register/register',
         'error' => 'error/error',
-
     ];
 
     public function __construct()
@@ -41,9 +42,10 @@ abstract class AbstractController
         $this->Blog = new Blog;
         $this->LoginForm = new LoginForm;
         $this->User = new User;
+        $this->UserVerify = new UserVerify;
     }
 
-    public function render($route, $variables = [], $top = false): array
+    protected function render($route, $variables = [], $top = false): array
     {
         return [
             'base' => view('base.view.php'),
@@ -52,7 +54,8 @@ abstract class AbstractController
                 'view' => $route === 'home' ? null : path('views/' . self::$views[$route] . '.view.php'),
                 'var' => $variables
             ],
-            'menu_at_top' => $top
+            'menu_at_top' => $top,
+            'user' => $this->UserVerify->handle()
         ];
     }
 }
