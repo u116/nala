@@ -20,10 +20,18 @@ class Cookie
      *     ]
      * ]
      */
-    public function setCookies(array $cookies)
+    public function setCookies(array $cookies): void
     {
         foreach ($cookies as $key => $value) {
             setcookie($key, $value['data'], strtotime($this->duration[$value['duration']]));
+        }
+    }
+
+    public function killCookies(): void
+    {
+        foreach ($_COOKIE as $key => $value) {
+            setcookie($key, '', time()-1000);
+            setcookie($key, '', time()-1000, '/');
         }
     }
 }

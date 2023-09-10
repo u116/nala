@@ -63,6 +63,24 @@ div#web-container main, nav {
     line-height: 1.5em;
 }
 
+div.elements {
+    position: absolute;
+    padding: 15px 25px 0px;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.elements a {
+    transition: var(--transition);
+}
+
+div.elements a:hover {
+    color: var(--red);
+}
+
 .box {
     padding: 15px;
     background-color: var(--box-bg);

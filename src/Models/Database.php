@@ -29,8 +29,9 @@ class Database
             return $this;
         };
 
+        $string = '';
         foreach ($columns as $column) {
-            $string = $string . $column . ',';
+            $string .= $column . ',';
         }
 
         $this->query = "SELECT ".rtrim($string, ',')." ";

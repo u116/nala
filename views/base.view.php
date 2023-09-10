@@ -24,6 +24,17 @@
 <body>
     <script>0</script> <!-- Css doesn't load in time without applying this. Very quick fix found on google -->
     <div id="web-container">
+        <div class="elements">
+            <p>
+                <?= isset($web['user']['data']['username']) ?
+                    "Logged in as {$web['user']['data']['username']}" :
+                    ""
+                ?>
+            </p>
+            <?php if (isset($web['user']['data']['username'])): ?>
+                <p><a href="/logout">Logout</a></p>
+            <?php endif; ?>
+        </div>
         <a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>>
             <img id="cat" alt="cat" class="<?php if($web['page']['route'] === 'home') echo 'home'; ?>" src="/storage/img/itazuranekoanimated.png">
         </a>

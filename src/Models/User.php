@@ -4,6 +4,18 @@ namespace Src\Models;
 
 class User extends Model
 {
+    public function getUserInfo(int $uid): array
+    {
+        return $this->DB
+            ->select([
+                'uid',
+                'username',
+            ])
+            ->from('users')
+            ->where("uid={$uid}")
+            ->fetchAssoc();
+    }
+
     public function getUsername(int $uid, ?string $username = null)
     {
         return $this->DB

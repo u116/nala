@@ -14,10 +14,8 @@ class UserVerify
     private array $cookieKeys = [
         'uid',
         'token',
-        'date'
     ];
     private ?array $userCookies;
-    private ?array $userSession;
 
     public function __construct()
     {
@@ -49,7 +47,7 @@ class UserVerify
 
     public function getUserCookies(): bool
     {
-        foreach ($this->cookieKeys as $key => $value) {
+        foreach ($this->cookieKeys as $key) {
             if (!isset($_COOKIE[$key])) return false;
         }
 
@@ -59,8 +57,8 @@ class UserVerify
 
     public function getUserSession(int $uid): ?array
     {
-        return $this->userSession = [
-            'user' => $this->User->getSessionInfo($uid),
+        return [
+            'data' => $this->User->getUserInfo($uid),
             'token' => $this->UserSession->getToken($uid),
         ];
     }

@@ -20,6 +20,7 @@ class Router
         '/index' => 'index',
         '/login' => 'login',
         '/register' => 'register',
+        '/logout' => 'logout',
     ];
     
 

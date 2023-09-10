@@ -17,24 +17,21 @@ class UserSession extends User
             ->execute();
     }
 
-    public function getSessionInfo(int $uid): array
-    {
-        return $this->DB
-            ->select([
-                'uid',
-                'username',
-            ])
-            ->from('users')
-            ->where("uid={$uid}")
-            ->fetchAssoc();
-    }
-
     public function getToken(int $uid): string
     {
         return $this->DB
             ->select('token')
             ->from('sessions')
             ->where("uid={$uid}")
+            ->fetchColumn();
+    }
+
+    public function getSessionInfo(string $token)
+    {
+        return $this->DB
+            ->select('uid, token')
+            ->from('sessions')
+            ->where("token={$token}")
             ->fetchColumn();
     }
 
