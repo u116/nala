@@ -15,7 +15,7 @@ class BlogController extends AbstractController
 
     public function get(): array
     {
-        return $this->render('blog',[
+        return $this->render('blog', [
                 'blog' => $this->prepareBlog(),
             ],
             true

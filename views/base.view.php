@@ -4,16 +4,16 @@
 <html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:website="http://ogp.me/ns/website" lang="en-US" itemscope="" itemtype="http://schema.org/WebPage">
 <head>
 
-<title>Nala - Personal website</title>
+<title>Nala - <?=$web['page']['title']?></title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="twitter:site" content="@nala_dev">
 <meta property="og:url" content="https://nala.dev">
-<meta property="og:title" content="Nala - Personal website">
+<meta property="og:title" content="Nala - <?=$web['page']['title']?>">
 <meta property="og:description" content="Nala is a personal website used for tools like file-sharing, link-shortening and other functionalities.">
 <meta property="og:image" content="/storage/favico2.png">
-<meta name="title" content="Nala - Personal website">
+<meta name="title" content="Nala - <?=$web['page']['title']?>">
 <meta name="description" content="Nala is a personal website used for tools like file-sharing, link-shortening and other functionalities.">
 
 <link type="image/png" sizes="32x32" rel="icon" href="/storage/favico2.png">

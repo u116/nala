@@ -51,6 +51,7 @@ abstract class AbstractController
             'base' => view('base.view.php'),
             'page' => [
                 'route' => $route,
+                'title' => $route === 'home' ? "Personal website" : ucfirst($route),
                 'view' => $route === 'home' ? null : path('views/' . self::$views[$route] . '.view.php'),
                 'var' => $variables
             ],
