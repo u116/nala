@@ -11,7 +11,7 @@
 <meta name="twitter:site" content="@nala_dev">
 <meta property="og:url" content="https://nala.dev">
 <meta property="og:title" content="Nala - <?=$web['page']['title']?>">
-<meta property="og:description" content="Nala is a personal website used for tools like file-sharing, link-shortening and other functionalities.">
+<meta property="og:description" content="Nala is a personal website used for tools like file-sharing, link-shortening and many other functionalities.">
 <meta property="og:image" content="/storage/favico2.png">
 <meta name="title" content="Nala - <?=$web['page']['title']?>">
 <meta name="description" content="Nala is a personal website used for tools like file-sharing, link-shortening and other functionalities.">
@@ -28,15 +28,16 @@
             <p>
                 <?= isset($web['user']['data']['username']) ?
                     "Logged in as {$web['user']['data']['username']}" :
-                    ""
+                    "<a href='/login'>Login</a>"
                 ?>
             </p>
-            <?php if (isset($web['user']['data']['username'])): ?>
-                <p><a href="/logout">Logout</a></p>
-            <?php endif; ?>
+            <?= isset($web['user']['data']['username']) ?
+                "<p><a href='/logout'>Logout</a></p>" :
+                "<a href='/register'>Register</a>"
+            ?>
         </div>
         <a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>>
-            <img id="cat" alt="cat" class="<?php if($web['page']['route'] === 'home') echo 'home'; ?>" src="/storage/img/itazuranekoanimated.png">
+            <figure id="cat" class="<?php if($web['page']['route'] === 'home') echo 'home'; ?>"><img alt="cat" src="/storage/img/itazuranekoanimated.png"></figure>
         </a>
         <!-- <a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>><h1>ナラ</h1></a> -->
 

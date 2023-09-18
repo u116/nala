@@ -21,7 +21,7 @@ class LoginController extends AbstractController
     {
         $form = (new LoginForm)->isCorrect();
 
-        if (is_int($form)) return (new ResponseController)->httpCodeResponse($form);
+        if (is_int($form))return (new ResponseController)->httpCodeResponse($form);
 
         if ($this->u(($this->data = $form->getTrimmedValues())['u'])) $this->p($this->data['p']);
 

@@ -17,6 +17,17 @@ class UserSession extends User
             ->execute();
     }
 
+    public function destroySession(string $token): bool
+    {
+        return (bool)$this->DB
+            ->delete()
+            ->from('sessions')
+            ->where([
+                "token='{$token}'"
+            ])
+            ->execute();
+    }
+
     public function getToken(int $uid): string
     {
         return $this->DB
@@ -26,12 +37,12 @@ class UserSession extends User
             ->fetchColumn();
     }
 
-    public function getSessionInfo(string $token)
+    public function getUidFromToken(string $token): int
     {
-        return $this->DB
-            ->select('uid, token')
+        return (int)$this->DB
+            ->select('uid')
             ->from('sessions')
-            ->where("token={$token}")
+            ->where("token='{$token}'")
             ->fetchColumn();
     }
 

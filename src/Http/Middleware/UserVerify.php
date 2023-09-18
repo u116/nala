@@ -4,7 +4,6 @@ namespace Src\Http\Middleware;
 
 use Src\Models\User;
 use Src\Models\UserSession;
-use Src\Http\Middleware\Cookie;
 
 class UserVerify
 {
@@ -12,8 +11,7 @@ class UserVerify
     private User $User;
     private int $uid;
     private array $cookieKeys = [
-        'uid',
-        'token',
+        'token'
     ];
     private ?array $userCookies;
 
@@ -26,17 +24,13 @@ class UserVerify
     public function handle(int $uid = null)
     {
         if ($this->getUserCookies()) {
-            return $this->getUserSession($this->userCookies['uid']);
+            return $this->getUserSession($this->uid = (new UserSession)->getUidFromToken(self::getTokenFromCookie()));
         }
         if (is_int($uid) && $this->UserSession->makeSession($uid)) {
             (new Cookie)->setCookies([
-                'uid' => [
-                    'data' => $uid,
-                    'duration' => '1m'
-                ],
                 'token' => [
                     'data' => $this->UserSession->token,
-                    'duration' => '1m'
+                    'duration' => 2.5
                 ]
             ]);
             return true;
@@ -53,6 +47,11 @@ class UserVerify
 
         $this->userCookies = empty($_COOKIE) ? null : $_COOKIE;
         return true;
+    }
+
+    public static function getTokenFromCookie(): ?string
+    {
+        return $_COOKIE['token'] ?? null;
     }
 
     public function getUserSession(int $uid): ?array

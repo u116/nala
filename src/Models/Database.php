@@ -38,6 +38,12 @@ class Database
         return $this;
     }
 
+    public function delete(): Database
+    {
+        $this->query = "DELETE ";
+        return $this;
+    }
+
     public function from(string|array $tables): Database
     {
         if (is_string($tables)) {
@@ -94,8 +100,9 @@ class Database
             return $this;
         }
 
+        $string = '';
         foreach ($conditions as $condition) {
-            $string = $string . $condition . ' AND ';
+            $string .= $condition . ' AND ';
         }
 
         $this->query .= "WHERE ".rtrim($string, ' AND')." ";

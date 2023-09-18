@@ -7,7 +7,6 @@ use Src\Models\Contact;
 use Src\Models\Interests;
 use Src\Models\Index;
 use Src\Models\Blog;
-use Src\Http\Forms\Form;
 use Src\Http\Forms\LoginForm;
 use Src\Models\User;
 use Src\Http\Middleware\UserVerify;
