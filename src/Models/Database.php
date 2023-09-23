@@ -65,18 +65,18 @@ class Database
         $insertingValues = '';
         foreach ($values as $key => $value) {
             $tableColumns .= "`{$key}`, ";
+            $value = $value ?? "null";
             switch ($value) {
-                case is_string($value):
-                    $insertingValues .= "\"{$value}\", ";
-                    break;
                 case is_int($value):
                 case is_float($value):
                 case 'default':
                 case 'null':
                     $insertingValues .= "{$value}, ";
                     break;
+                case is_string($value):
+                    $insertingValues .= "\"{$value}\", ";
+                    break;
             }
-
         }
 
         $tableColumns = rtrim($tableColumns, ', ');
@@ -139,6 +139,11 @@ class Database
     public function execute(): true|mysqli_sql_exception
     {
         return self::$c->execute_query($this->query.';');
+    }
+
+    public function executeAndGetId(): Database
+    {
+        if (self::$c->execute_query($this->query.';')) return $this;
     }
 
     public static function insertedId(): int

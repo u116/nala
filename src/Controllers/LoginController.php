@@ -11,6 +11,13 @@ class LoginController extends AbstractController
     public ?array $errors = null;
     private array $data;
     private array $user;
+    protected LoginForm $LoginForm;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->LoginForm = new LoginForm;
+    }
 
     public function get(): array
     {
@@ -19,11 +26,11 @@ class LoginController extends AbstractController
 
     public function post(): array
     {
-        $form = (new LoginForm)->isCorrect();
+        if (!$this->LoginForm->isCorrect())
+            return (new ResponseController)->httpCodeResponse($this->LoginForm->errorCode);
+        else $this->data = $this->LoginForm->getPostData();
 
-        if (is_int($form))return (new ResponseController)->httpCodeResponse($form);
-
-        if ($this->u(($this->data = $form->getTrimmedValues())['u'])) $this->p($this->data['p']);
+        if ($this->u($this->data['u'])) $this->p($this->data['p']);
 
         if (isset($this->errors)) return $this->render('login', [
             'user' => $this->errors,
@@ -39,7 +46,7 @@ class LoginController extends AbstractController
     {
         if (!$this->User->findUsername($username)) {
             $this->errors['username'] = [
-                'username' => $this->data['u'],
+                'username' => $username,
                 'message' => "Incorrect username."
             ];
             return false;
@@ -53,9 +60,14 @@ class LoginController extends AbstractController
     private function p(string $password): void
     {
         if (!($this->User->getPassword($this->user['uid']) === $password)) {
-            $this->errors['password'] = [
-                'password' => $this->data['p'],
-                'message' => "Incorrect password."
+            $this->errors = [
+                'username' => [
+                    'username' => $this->data['u']
+                ],
+                'password' => [
+                    'password' => $password,
+                    'message' => "Incorrect password."
+                ]
             ];
         }
     }

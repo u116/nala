@@ -2,6 +2,8 @@
 
 use Src\Routes\Router;
 
+$start = microtime(true);
+
 const BASE_PATH = __DIR__ . '/../';
 const DIR = __DIR__ . '/';
 
@@ -20,5 +22,7 @@ spl_autoload_register(function ($class) {
 $router = new Router;
 
 $web = $router->route($_POST['_method'] ?? $_SERVER['REQUEST_METHOD']);
+
+$excTime = round((microtime(true) - $start) * 1000) . "ms";
 
 require $web['base'];

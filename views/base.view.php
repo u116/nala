@@ -28,18 +28,21 @@
             <p>
                 <?= isset($web['user']['data']['username']) ?
                     "Logged in as {$web['user']['data']['username']}" :
-                    "<a href='/login'>Login</a>"
+                    "<a class='no-session' href='/login'>Login</a>"
                 ?>
+            </p>
+            <p>
+                <?=$excTime?>
             </p>
             <?= isset($web['user']['data']['username']) ?
                 "<p><a href='/logout'>Logout</a></p>" :
-                "<a href='/register'>Register</a>"
+                "<a class='no-session' href='/register'>Register</a>"
             ?>
         </div>
         <a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>>
             <figure id="cat" class="<?php if($web['page']['route'] === 'home') echo 'home'; ?>"><img alt="cat" src="/storage/img/itazuranekoanimated.png"></figure>
         </a>
-        <!-- <a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>><h1>ナラ</h1></a> -->
+        <!--<a href=<?= $web['page']['route'] === 'home' ? 'about' : '/' ?>><h1 class="<?php if($web['page']['route'] === 'home') echo 'home'?>">ナラ</h1></a>-->
 
         <?php if ($web['menu_at_top']) require view('_menu.view.php'); ?>
 

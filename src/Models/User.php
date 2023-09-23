@@ -51,4 +51,16 @@ class User extends Model
             ->where("username='{$username}'")
             ->fetchColumn();
     }
+
+    public function register(string $username, string $password, ?string $email): int
+    {
+        return $this->DB
+            ->insert([
+                'username' => $username,
+                'password' => $password,
+                'email' => $email
+            ])
+            ->into('users')
+            ->executeAndGetId()::insertedId();
+    }
 }
