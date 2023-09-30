@@ -57,7 +57,7 @@ class User extends Model
         return $this->DB
             ->insert([
                 'username' => $username,
-                'password' => $password,
+                'password' => Hasher::make($password),
                 'email' => $email
             ])
             ->into('users')

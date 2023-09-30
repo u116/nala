@@ -5,6 +5,7 @@ namespace Src\Controllers;
 use Src\Http\Forms\LoginForm;
 use Src\Http\Middleware\UserVerify;
 use Src\Models\User;
+use Src\Models\Hasher;
 
 class LoginController extends AbstractController
 {
@@ -59,7 +60,7 @@ class LoginController extends AbstractController
 
     private function p(string $password): void
     {
-        if (!($this->User->getPassword($this->user['uid']) === $password)) {
+        if (!Hasher::check($password, $this->User->getPassword($this->user['uid']))) {
             $this->errors = [
                 'username' => [
                     'username' => $this->data['u']
