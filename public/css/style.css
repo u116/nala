@@ -20,6 +20,24 @@ input {
     font-size: 14px;
 }
 
+textarea {
+    padding: 10px 15px;
+    background-color: var(--body-bg);
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+    width: 100%;
+    min-height: 150px;
+    resize: vertical;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
+    line-height: inherit;
+}
+
+.center-text {
+    text-align: center;
+}
+
 div#web-container {
     width: 560px;
     min-height: 100vh;
@@ -221,7 +239,7 @@ form.simple input[type=text], form.simple input[type=password], form.simple inpu
     transition: var(--transition);
 }
 
-form.simple input[type=submit] {
+input[type=submit] {
     padding: 10px 60px;
     background-color: var(--body-bg);
     border-radius: 2px;
@@ -230,11 +248,11 @@ form.simple input[type=submit] {
     cursor: pointer;
 }
 
-form.simple input[type=submit]:hover {
+input[type=submit]:hover {
     background-color: var(--box-bg);
 }
 
-form.simple input:focus-within {
+form.simple input:focus-within, textarea:focus-within {
     border: 2px solid var(--purple-archived);
 }
 
@@ -249,6 +267,17 @@ section.error-page a {
 
 section.error-page a:hover {
     opacity: 1;
+}
+
+form.aboutEdit {
+    margin-top: var(--gap);
+    display: grid;
+    grid-gap: var(--gap);
+    justify-items: center;
+}
+
+form.aboutEdit textarea {
+    transition: border var(--transition);
 }
 
 @media (max-width: 560px) {

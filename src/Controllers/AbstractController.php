@@ -21,6 +21,7 @@ abstract class AbstractController
     protected LoginForm $LoginForm;
     protected User $User;
     protected UserVerify $UserVerify;
+    public ?array $userInfo;
     private static array $views = [
         'about' => 'about/about',
         'contact' => 'contact/contact',
@@ -30,6 +31,7 @@ abstract class AbstractController
         'login' => 'login/login',
         'register' => 'register/register',
         'error' => 'error/error',
+        'edit' => 'edit/edit',
     ];
 
     public function __construct()
@@ -42,6 +44,7 @@ abstract class AbstractController
         $this->LoginForm = new LoginForm;
         $this->User = new User;
         $this->UserVerify = new UserVerify;
+        $this->userInfo = $this->UserVerify->handle();
     }
 
     protected function render($route, $variables = [], $top = false): array
@@ -55,7 +58,7 @@ abstract class AbstractController
                 'var' => $variables
             ],
             'menu_at_top' => $top,
-            'user' => $this->UserVerify->handle()
+            'user' => $this->userInfo
         ];
     }
 }

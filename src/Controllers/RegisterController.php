@@ -61,7 +61,6 @@ class RegisterController extends AbstractController
         if ($this->User->findUsername($username))
             $this->errors['username']['message'] = "Username already exists.";
 
-
         if (isset($this->errors['username']))
             $this->errors['username']['username'] = $username;
     }

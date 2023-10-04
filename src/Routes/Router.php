@@ -21,6 +21,11 @@ class Router
         '/login' => 'login',
         '/register' => 'register',
         '/logout' => 'logout',
+        '/edit/about' => 'edit',
+        '/edit/contact' => 'edit',
+        '/edit/interests' => 'edit',
+        '/edit/blog' => 'edit',
+        '/edit/index' => 'edit',
     ];
     
 

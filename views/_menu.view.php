@@ -8,7 +8,7 @@
             if ($web['page']['route'] === $link)
                 echo "<li class='highlight'><a href='$link'>$link</a></li>";
             else
-                echo "<li><a href='$link'>$link</a></li>";
+                echo "<li><a href='/$link'>$link</a></li>";
 
         ?>
     </ul>

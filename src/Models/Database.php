@@ -93,10 +93,36 @@ class Database
         return $this;
     }
 
+    public function update(string $table): Database
+    {
+        $this->query = "UPDATE {$table} ";
+        return $this;
+    }
+
+    public function set(array $values): Database
+    {
+        $this->query .= "SET ";
+        foreach ($values as $key => $value) {
+            switch ($value) {
+                case is_int($value):
+                case is_float($value):
+                case 'default':
+                case 'null':
+                    $this->query .= "{$key}={$value}, ";
+                    break;
+                case is_string($value):
+                    $this->query .= "{$key}=\"{$value}\", ";
+                    break;
+            }
+        }
+        $this->query = rtrim($this->query, ", ");
+        return $this;
+    }
+
     public function where(string|array $conditions): Database
     {
         if (is_string($conditions)) {
-            $this->query = $this->query."WHERE {$conditions}";
+            $this->query = $this->query." WHERE {$conditions}";
             return $this;
         }
 
@@ -135,6 +161,7 @@ class Database
             ->execute_query($this->query.';')
             ->fetch_all(MYSQLI_ASSOC);
     }
+
 
     public function execute(): true|mysqli_sql_exception
     {
