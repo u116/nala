@@ -4,11 +4,10 @@ use Src\Routes\Router;
 
 $start = microtime(true);
 
-const BASE_PATH = __DIR__ . '/../';
+const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR . '..'. DIRECTORY_SEPARATOR;
 const DIR = __DIR__ . '/';
 
 require BASE_PATH . 'src/helpers.php';
-
 
 spl_autoload_register(function ($class) {
     $file = path(str_replace('\\', DIRECTORY_SEPARATOR, lcfirst($class)) . '.php');

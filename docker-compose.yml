@@ -4,7 +4,7 @@ services: # Palabra clave de Docker Compose.
     image: nginx:alpine # Imagen a extraer desde Docker Hub.
     restart: always
     ports: # Mapeado de puertos entre la máquina real y el contenedor.
-      - "8085:80"
+      - "80:80"
     networks: # Este servicio pertenece a la red: internal
       - internal
     volumes:
@@ -34,6 +34,7 @@ services: # Palabra clave de Docker Compose.
       - '3306'
     volumes:
       - ./database/schema.sql:/schema.sql
+      - ./database/dumps/nala_dump230905.sql:/dump.sql
       - db:/var/lib/mysql
     networks:
       - internal

@@ -8,6 +8,7 @@ class ContactController extends AbstractController
     {
         return $this->render('contact', [
                 'contacts' => $this->Contact->getContact(),
+                false
             ]
         );
     }

@@ -9,6 +9,7 @@ class InterestsController extends AbstractController
         $interests = $this->Interests->getInterests();
         return $this->render('interests', [
                 'interests' => empty($interests) ? null : $interests,
+                true
             ]
         );
     }

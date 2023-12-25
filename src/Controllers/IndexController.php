@@ -9,6 +9,7 @@ class IndexController extends AbstractController
         $index = $this->Index->getIndex();
         return $this->render('index', [
                 'index' => empty($index) ? null : $index,
+                false
             ]
         );
     }

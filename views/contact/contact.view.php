@@ -5,20 +5,20 @@
 
         switch ($key) {
             case "email":
-                ?><a href="mailto:<?=$value?>"><?=ucfirst($key)?></a> <?php
+                ?><a href="mailto:<?=$value?>"><address><?=ucfirst($key)?></address></a> <?php
                 break;
             case "X":
-                ?><a href="https://x.com/<?=$value?>"><?=ucfirst($key)?></a> <?php
+                ?><a href="https://x.com/<?=$value?>"><address><?=ucfirst($key)?></address></a> <?php
                 break;
             case "github":
                 ?><a href="https://github.com/<?=$value?>">
-                <?=ucfirst($key)?></a> <?php
+                <address><?=ucfirst($key)?></address></a> <?php
                 break;
             case "discord":
-                ?><?=ucfirst($key)?> (<?=$value?>) <?php
+                ?><address><?=ucfirst($key)?> (<?=$value?>)</address> <?php
                 break;
             case "website":
-                ?><a href="<?=$value?>"><?=ucfirst($key)?></a> <?php
+                ?><a href="<?=$value?>"><address><?=ucfirst($key)?></address></a> <?php
                 break;
         }
 

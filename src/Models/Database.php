@@ -177,4 +177,9 @@ class Database
     {
         return self::$c->insert_id;
     }
+
+    public static function raw(string $query)
+    {
+        return self::$c->execute_query($query);
+    }
 }

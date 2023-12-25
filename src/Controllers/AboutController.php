@@ -12,7 +12,8 @@ class AboutController extends AbstractController
     public function get(): array
     {
         return $this->render('about', [
-                'content' => $this->About->getContent(),
+                'content' => $this->About->getContent($this->uid),
+                false
             ]
         );
     }

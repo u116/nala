@@ -36,7 +36,7 @@ class EditController extends AbstractController
         if ((new EditForm($this->section))->isCorrect()) {
             $this->received = (new EditForm($this->section))->getPostData()['a'];
             if (Validator::about($this->received)) {
-                $this->About->edit($this->received, $this->userInfo['data']['uid']);
+                $this->About->edit($this->received, $this->uid);
             }
         } else return (new ResponseController)->httpCodeResponse($this->LoginForm->errorCode);
 
@@ -50,7 +50,7 @@ class EditController extends AbstractController
 
     private function getAbout(): string
     {
-        return $this->About->getContent();
+        return $this->About->getContent($this->uid);
     }
 
     private function postAbout()

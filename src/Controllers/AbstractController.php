@@ -21,6 +21,7 @@ abstract class AbstractController
     protected LoginForm $LoginForm;
     protected User $User;
     protected UserVerify $UserVerify;
+    protected ?int $uid;
     public ?array $userInfo;
     private static array $views = [
         'about' => 'about/about',
@@ -45,6 +46,7 @@ abstract class AbstractController
         $this->User = new User;
         $this->UserVerify = new UserVerify;
         $this->userInfo = $this->UserVerify->handle();
+        $this->uid = $this->userInfo['data']['uid'] ?? 1;
     }
 
     protected function render($route, $variables = [], $top = false): array
@@ -57,7 +59,7 @@ abstract class AbstractController
                 'view' => $route === 'home' ? null : path('views/' . self::$views[$route] . '.view.php'),
                 'var' => $variables
             ],
-            'menu_at_top' => $top,
+            'menu_at_top' => 1, // Currently set to 1 statically.
             'user' => $this->userInfo
         ];
     }

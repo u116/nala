@@ -1,3 +1,18 @@
+:root {
+    --body-bg: #191919;
+    --main-font-color: #f1f1f1;
+    --box-bg: #333333;
+    --box-bg-border: rgb(70, 70, 70);
+    --purple-archived: #b6bae5;
+    --bold: 600;
+    --gap: 8px;
+    --transition: .15s;
+    --blue: #3A73F3;
+    --purple: #633dc4;
+    --red: #f33a3a;
+    --orange: rgb(249, 76, 87);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +27,7 @@ body{
     background-color: var(--body-bg);
     color: var(--main-font-color);
     height: 100%;
+    overflow-y: scroll;
 }
 
 input {
@@ -32,6 +48,10 @@ textarea {
     font-family: inherit;
     outline: none;
     line-height: inherit;
+}
+
+address {
+    font-style: inherit;
 }
 
 .center-text {
