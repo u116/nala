@@ -34,9 +34,6 @@
                     "<a class='no-session' href='/login'>Login</a>"
                 ?>
             </p>
-            <p>
-                <?=$excTime?>
-            </p>
             <?= isset($web['user']['data']['username']) ?
                 "<p><a href='/logout'>Logout</a></p>" :
                 "<a class='no-session' href='/register'>Register</a>"

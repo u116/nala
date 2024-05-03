@@ -54,6 +54,18 @@ address {
     font-style: inherit;
 }
 
+.button {
+    padding: 10px;
+    background-color: var(--body-bg);
+    border-radius: 2px;
+    border: 2px solid var(--box-bg-border);
+    transition: var(--transition);
+}
+
+.button:hover {
+    background-color: var(--box-bg);
+}
+
 .center-text {
     text-align: center;
 }
@@ -298,6 +310,14 @@ form.aboutEdit {
 
 form.aboutEdit textarea {
     transition: border var(--transition);
+}
+
+div.redirect-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    margin-bottom: 20px;
 }
 
 @media (max-width: 560px) {

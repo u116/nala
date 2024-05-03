@@ -13,6 +13,7 @@ class Database
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         try {
+
             require(BASE_PATH . 'database/credentials.php');
             self::$c = new mysqli($dbServer, $dbUser, $dbPass, $dbName, $dbPort);
         } catch (mysqli_sql_exception $e) {

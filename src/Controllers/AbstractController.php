@@ -8,6 +8,7 @@ use Src\Models\Interests;
 use Src\Models\Index;
 use Src\Models\Blog;
 use Src\Http\Forms\LoginForm;
+use Src\Models\Redirect;
 use Src\Models\User;
 use Src\Http\Middleware\UserVerify;
 
@@ -20,6 +21,7 @@ abstract class AbstractController
     protected Blog $Blog;
     protected LoginForm $LoginForm;
     protected User $User;
+    protected Redirect $Redirect;
     protected UserVerify $UserVerify;
     protected ?int $uid;
     public ?array $userInfo;
@@ -33,6 +35,7 @@ abstract class AbstractController
         'register' => 'register/register',
         'error' => 'error/error',
         'edit' => 'edit/edit',
+        'redirect' => 'redirect/redirect'
     ];
 
     public function __construct()
@@ -45,6 +48,7 @@ abstract class AbstractController
         $this->LoginForm = new LoginForm;
         $this->User = new User;
         $this->UserVerify = new UserVerify;
+        $this->Redirect = new Redirect;
         $this->userInfo = $this->UserVerify->handle();
         $this->uid = $this->userInfo['data']['uid'] ?? 1;
     }
@@ -59,7 +63,7 @@ abstract class AbstractController
                 'view' => $route === 'home' ? null : path('views/' . self::$views[$route] . '.view.php'),
                 'var' => $variables
             ],
-            'menu_at_top' => 1, // Currently set to 1 statically.
+            'menu_at_top' => 1, // Currently set to 1 statically, otherwise use $top.
             'user' => $this->userInfo
         ];
     }

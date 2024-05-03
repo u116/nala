@@ -1,6 +1,6 @@
 <?php
 
-$dbServer = 'localhost';
+$dbServer = 'mysql-3';
 $dbUser = 'root';
 $dbPass = 'pw123';
 $dbName = 'nala';
